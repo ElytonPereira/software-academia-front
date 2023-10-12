@@ -32,9 +32,9 @@ function RegistrarUser(){
       )
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Erro na solicitação: ' + response.status);
+          throw new Error('Erro na solicitação: ' + response.json);
         }
-        return console.log('Usuario criado');
+        return  console.log('Usuario criado' + response.text());
       })
       .then((data) => {
         // Sucesso: faça algo com os dados
@@ -46,7 +46,7 @@ function RegistrarUser(){
     }
 
     return(
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => e.preventDefault()}>
         
         <section className={`register ${isRegisterVisible ? 'register--active' : ''}`}>
             <button 
@@ -91,7 +91,7 @@ function RegistrarUser(){
             </div>
 
             <div className='container-login-form-btn'>
-              <button className='login-form-btn' type="submit">Registrar</button>
+              <button className='login-form-btn' type="submit" onClick={handleSubmit}>Registrar</button>
             </div>
 
         </section>
