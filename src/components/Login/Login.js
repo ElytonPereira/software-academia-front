@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import jpImg from '../../assets/jp.svg'
 import './Login.css'
-import RegisterButton from '../RegisterButton/RegisterButton';
+import RegisterButton from '../registrarUser/RegisterButton/RegisterButton';
+import {useNavigate } from 'react-router-dom'
 
 function Login() {
 
   const [login, setLogin] = useState("")
   const [senha, setSenha] = useState("")
-  const [respostaApi, setRespostaApi] = useState("")
+  const [token, setToken] = useState("")
+  
+  const navigate = useNavigate();
+
 
   const API = "http://localhost:9090"
 
@@ -24,23 +28,34 @@ function Login() {
       method: "POST",
       body: JSON.stringify(data),
       headers:{
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      
+  
     }
     )
     .then((response) => {
       if (!response.ok) {
         throw new Error('Erro na solicitação: '  + console.log(response.text()));
       }
-          
+      
       return response.text();    
 
     })
     .then((respostaText) => {      
       const repostaConvertida = JSON.parse(respostaText); //CONVERTENDO A RESPOSTA PARA EM JSON
-      setRespostaApi(repostaConvertida); //MANDANDO O JSON PARA A VARIAVEL
-      console.log('Autentição realizada');      
+      setToken(repostaConvertida); //MANDANDO O JSON PARA A VARIAVEL
       
+      if(repostaConvertida !== 'undefined'){
+        localStorage.setItem("TOKEN", token.token)
+        localStorage.setItem("NOME", login)
+       
+        console.log('quero ver22222' + token.token )
+        alert('Usuario: ' + login +  ' logado com sucesso')
+        navigate('/home')  
+        console.log('Autentição realizada: ' + localStorage.getItem("TOKEN")); 
+      }  
     })
     .catch((error) => {
       console.error('Erro na solicitação:', error);
@@ -70,13 +85,13 @@ function Login() {
             <div className='wrap-input'>
               <input 
               className={senha !== "" ? 'has-val input' : 'input'} 
-              type='senha'
+              type='password'
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               />
               <span className='focus-input' data-placeholder='Senha'></span>
             </div>
-             <div>{respostaApi.token}</div> 
+             <div>{token.token}</div>
             <div className='container-login-form-btn'>
               <button className='login-form-btn' onClick={handleSubmit}>Login</button>
             </div>

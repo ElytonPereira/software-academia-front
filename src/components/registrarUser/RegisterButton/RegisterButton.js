@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import './RegisterButton.css'
-import AppContext from "../../context/AppContext";
+import AppContext from "../../../context/AppContext";
 
 function RegisterButton(){
 

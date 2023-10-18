@@ -1,0 +1,26 @@
+/* Estilos para o cabeçalho (parte superior) */
+.header {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 20px; /* Espaçamento interno do cabeçalho */
+    
+  }
+  
+  /* Estilos para a linha divisória */
+  .separator {
+    border-top: 1px solid #bb0000; /* Linha divisória cinza */
+  }
+
+  /* Estilos para a parte embaixo (espaço cinza) */
+  .container-exercicios {
+    background-color: #333; /* Cor de fundo da parte de baixo */
+
+    padding: 20px; /* Espaçamento interno da parte de baixo */
+  }
+
+  .buttonExit{
+    align-items: end;
+    justify-items: end;
+    position: relative;
+    
+  }
