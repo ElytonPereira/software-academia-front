@@ -32,12 +32,13 @@ function RegistrarUser(){
       )
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Erro na solicitação: ' + response.json);
+          throw new Error('Erro na solicitação: ' + response);
         }
         return  console.log('Usuario criado' + response.text());
       })
       .then((data) => {
-        // Sucesso: faça algo com os dados
+        setIsRegisterVisible(false)
+        
       })
       .catch((error) => {
         console.error('Erro na solicitação:', error);
@@ -91,7 +92,11 @@ function RegistrarUser(){
             </div>
 
             <div className='container-login-form-btn'>
-              <button className='login-form-btn' type="submit" onClick={handleSubmit}>Registrar</button>
+              <button className='login-form-btn' 
+              type="submit" 
+              onClick={handleSubmit}
+              
+              >Registrar</button>
             </div>
 
         </section>

@@ -20,42 +20,32 @@ function Login() {
     
     const data = {
       senha,
-      login
-      
+      login      
     }
 
-    await fetch(API + "/auth", {
+    console.log(JSON.stringify(data));
+
+    await fetch(API + "/auth", {      
       method: "POST",
       body: JSON.stringify(data),
       headers:{
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json", 
       },
-      
-  
-    }
-    )
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Erro na solicitação: '  + console.log(response.text()));
-      }
-      
-      return response.text();    
-
     })
-    .then((respostaText) => {      
-      const repostaConvertida = JSON.parse(respostaText); //CONVERTENDO A RESPOSTA PARA EM JSON
-      setToken(repostaConvertida); //MANDANDO O JSON PARA A VARIAVEL
+    .then((response) => response.json())
+    .then((data) => {      
+      console.log("Retorno ", data);      
+      setToken(data); //MANDANDO O JSON PARA A VARIAVEL
       
-      if(repostaConvertida !== 'undefined'){
-        localStorage.setItem("TOKEN", token.token)
-        localStorage.setItem("NOME", login)
+      if(data !== 'undefined'){
+        localStorage.setItem("TOKEN", data.token);
+        localStorage.setItem("NOME", login);
        
-        console.log('quero ver22222' + token.token )
+        console.log('quero ver22222' + data.token )
         alert('Usuario: ' + login +  ' logado com sucesso')
         navigate('/home')  
         console.log('Autentição realizada: ' + localStorage.getItem("TOKEN")); 
-      }  
+      } 
     })
     .catch((error) => {
       console.error('Erro na solicitação:', error);
