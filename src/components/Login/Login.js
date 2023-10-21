@@ -3,6 +3,8 @@ import jpImg from '../../assets/jp.svg'
 import './Login.css'
 import RegisterButton from '../registrarUser/RegisterButton/RegisterButton';
 import {useNavigate } from 'react-router-dom'
+import { validarLogin, validarSenha } from '../../Utils/validadores';
+
 
 function Login() {
 
@@ -32,7 +34,13 @@ function Login() {
         "Content-Type": "application/json", 
       },
     })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Erro na solicitação: '  + console.log(response.text()));
+      }
+
+      return response.json(); 
+      })
     .then((data) => {      
       console.log("Retorno ", data);      
       setToken(data); //MANDANDO O JSON PARA A VARIAVEL
@@ -40,7 +48,6 @@ function Login() {
       if(data !== 'undefined'){
         localStorage.setItem("TOKEN", data.token);
         localStorage.setItem("NOME", login);
-       
         console.log('quero ver22222' + data.token )
         alert('Usuario: ' + login +  ' logado com sucesso')
         navigate('/home')  
@@ -48,9 +55,14 @@ function Login() {
       } 
     })
     .catch((error) => {
+      
       console.error('Erro na solicitação:', error);
     })
     
+  }
+
+  const validadorInput = () => {
+    return validarLogin(login) && validarSenha(senha)
   }
 
   return (
@@ -83,7 +95,10 @@ function Login() {
             </div>
              <div>{token.token}</div>
             <div className='container-login-form-btn'>
-              <button className='login-form-btn' onClick={handleSubmit}>Login</button>
+              <button className='login-form-btn' 
+              disabled={!validadorInput()}
+              onClick={handleSubmit}>Login</button>
+              
             </div>
             <RegisterButton/>
           </form>
