@@ -5,13 +5,14 @@
     width: 100% auto;
     height: 176px;
     
-    background: #686060;    
+    background-color: #111;    
     padding: 20px; /* Espaçamento interno do cabeçalho */
     
   }
 
   .txt-treinos{
     color: #FFF;
+    padding-left:40%;
     font-family: Inter;
     font-size: 50px;
     font-style: normal;
@@ -75,7 +76,9 @@
   .treinos {
     width: 100% auto;
     height: 80px;
-    background: #686060;
+    background-color: #333;
+    display: grid;
+    grid: 15px;  
     
   }
 
@@ -86,7 +89,10 @@
     align-items: center;
 
     border-radius: 4px;
-    background: #415233;
+    background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+    background: linear-gradient(to left, #21d4fd, #b721ff);
     cursor: pointer;
   }
 
@@ -109,7 +115,10 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    background: #415233;
+    background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+    background: linear-gradient(to left, #21d4fd, #b721ff);
     cursor: pointer;
   }
 
@@ -132,7 +141,10 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    background: #415233;
+    background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+    background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+    background: linear-gradient(to left, #21d4fd, #b721ff);
     cursor: pointer;
   }
 
@@ -147,36 +159,18 @@
     font-weight: 600;
     line-height: 130%; /* 20.8px */
     background: none;
+    
   }
 
-  .button-treinoD{
-    display: inline-flex;
-    padding: 13.5px 31px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    background: #415233;
-    cursor: pointer;
-  }
-
-  .txt-button-treinoD{
-    color: #FFF;
-
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%; /* 20.8px */
-    background: none;
-  }
 
   /* Estilos para a parte embaixo (espaço cinza) */
-  .start-exercicios {
+  .exercicios {
     width: 100% auto;
-    height: 45px;
-    background: #686060;
+    height: 100vh;
+    background: #333;
+    
+    
+    padding-top: 10%;
     
   }
 
@@ -205,7 +199,7 @@
     align-items: center;
 
     border-radius: 4px;
-    background: #2D2E2C;
+    background: #333;
     cursor: pointer;
     position: absolute;
     right: 0;
@@ -223,9 +217,20 @@
     line-height: 130%; /* 20.8px */
     background: none;
   }
-  .exercicios{
-    width: auto;
-    height: 550px;
-    background: #BEBEBE;   
+  
+  .exercicios-list{
     
+    
+    flex-direction: column;
+    justify-content: center;
+    
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 20.8px */
+    background: none;
   }
