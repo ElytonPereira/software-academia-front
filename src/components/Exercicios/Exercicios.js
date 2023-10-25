@@ -80,10 +80,12 @@ return(
                   {treino.exercicios.map((exercicio, index) => (
                     <li key={index}>{exercicio}</li>
                   ))}
-                </ul>
-              </div>
+                </ul>               
+              </div>              
             ))}
-
+             <button className="start-button-treino">
+            <text className="txt-start-button-treino">Timer descanso</text>
+          </button>
         </section>
 
 
