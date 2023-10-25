@@ -4,6 +4,7 @@ import ProtectedRoutes from './ProtectedRoutes'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from '../components/Home/Home'
+import Exercícios from '../components/Exercicios/Exercicios'
 
 const Routering = () => {
     return ( 
@@ -13,6 +14,7 @@ const Routering = () => {
           <Route path="/home" element={
             <ProtectedRoutes>
               <Home/>
+              <Exercícios/>
             </ProtectedRoutes>
           }
           />

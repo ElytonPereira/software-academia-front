@@ -4,10 +4,16 @@ import propTypes from "prop-types";
 
 function Provider({children}){
     const [isRegisterVisible, setIsRegisterVisible] = useState(false)
+    const [isExerciciosVisible, setExerciciosVisible] = useState(false);
+    const [treinoSelecionado, setTreinoSelecionado] = useState(null);
 
     const value ={
         isRegisterVisible,
-        setIsRegisterVisible
+        setIsRegisterVisible,
+        treinoSelecionado,
+        setTreinoSelecionado,
+        isExerciciosVisible,
+        setExerciciosVisible
     }
 
     return(

@@ -42,7 +42,8 @@
 
   .txt-nome{
     display: flex;    
-    background: none;
+    background: none;    
+    font-size: 30px;
   }
 
   .button-sair{
@@ -167,10 +168,10 @@
   .exercicios {
     width: 100% auto;
     height: 100vh;
-    background: #333;
+    background: #333;    
+    padding: 13.5px 30px 13.5px 31px;
     
-    
-    padding-top: 10%;
+    overflow: auto;
     
   }
 
@@ -218,19 +219,3 @@
     background: none;
   }
   
-  .exercicios-list{
-    
-    
-    flex-direction: column;
-    justify-content: center;
-    
-    color: #FFF;
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%; /* 20.8px */
-    background: none;
-  }

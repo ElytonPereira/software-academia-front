@@ -1,0 +1,36 @@
+.exercicios{
+    width: 100%;
+    background-color: #333;
+    height: 60vh;
+    position: fixed;
+    top: 42vh;
+    left: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translate(-100%, 0);
+    transition: all 400ms ease;
+    overflow: auto;
+}
+  
+.exercicios--active{
+    transform: translate(0, 0);
+  }
+
+  .exercicios-list{    
+    
+    flex-direction: column;
+    justify-content: center;
+    
+    color: #FFF;
+    text-align: justify;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 20.8px */ 
+    background: none;
+    
+  }  
